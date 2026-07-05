@@ -7,6 +7,9 @@ Interpretador para a linguagem de programação Stypuff
 """
 
 import re
+import os
+import shutil
+import glob
 from enum import Enum
 from typing import List, Dict, Any, Union, Optional
 from dataclasses import dataclass
@@ -175,6 +178,10 @@ class CreateStatement(ASTNode):
     def __init__(self, name: str):
         self.name = name
 
+class FaviconStatement(ASTNode):
+    def __init__(self, path: str):
+        self.path = path
+
 class VariableDeclaration(ASTNode):
     def __init__(self, name: str, value: ASTNode):
         self.name = name
@@ -242,6 +249,13 @@ class Parser:
                     name = self.expect(TokenType.STRING, "expected string").value
                     self.expect(TokenType.SYMBOL, ")")
                     return CreateStatement(name)
+                # styp.favicon("path/to/icon") -> copies icon into stypuffDatas/favicon.ico
+                if self.check(TokenType.IDENTIFIER) and self.current().value == "favicon":
+                    self.advance()
+                    self.expect(TokenType.SYMBOL, "(")
+                    path = self.expect(TokenType.STRING, "expected string").value
+                    self.expect(TokenType.SYMBOL, ")")
+                    return FaviconStatement(path)
             
             elif keyword == "work":
                 self.advance()
@@ -498,6 +512,22 @@ class StypuffEngine:
         elif isinstance(stmt, FunctionDeclaration):
             self.functions[stmt.name] = stmt
             print("[Stypuff] Função declarada")
+        elif isinstance(stmt, FaviconStatement):
+            src = stmt.path
+            # Try relative to current working directory, then in stypuffDatas
+            candidates = [src, os.path.join(os.getcwd(), src), os.path.join(os.getcwd(), "stypuffDatas", src)]
+            dest_dir = os.path.join(os.getcwd(), "stypuffDatas")
+            os.makedirs(dest_dir, exist_ok=True)
+            dest = os.path.join(dest_dir, "favicon.ico")
+            copied = False
+            for c in candidates:
+                if os.path.isfile(c):
+                    shutil.copyfile(c, dest)
+                    print(f"[Stypuff] Favicon copiado de {c} para {dest}")
+                    copied = True
+                    break
+            if not copied:
+                print(f"[Stypuff] Aviso: não foi possível localizar o favicon: {src}")
     
     def execute_function_call(self, call: FunctionCall):
         if call.name == "print" or call.name == "print_ln":
