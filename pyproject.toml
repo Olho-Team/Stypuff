@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=42","wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "stypuff"
+version = "0.1.0"
+description = "Stypuff interpreter (Python wrapper)"
+authors = [{name = "Olho-Team"}]
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = []
+
+[project.scripts]
+stypuff = "stypuff_interpreter:main"
