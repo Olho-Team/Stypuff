@@ -1,0 +1,8 @@
+@datalist{
+    §value("Bash").id("1")
+    §value("PowerShell").id("2")
+}
+
+print("Dados Stypuff carregados")
+print("Bash")
+print("PowerShell")

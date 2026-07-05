@@ -9,7 +9,7 @@ stypuffheart.cc  - Núcleo do interpretador (Tokenizer, Parser, Executor)
 localdata.cc     - Gerenciador de variáveis, objetos e arrays
 branch.cc        - Controle de fluxo e eventos
 codelist.txt     - Lista de código/especificação Stypuff
-examples.styp    - Exemplos de programas em Stypuff
+examples.styp    - Exemplos de programas em Stypuff (.styp e .stypdata)
 tests.cc         - Suite de testes
 README.md        - Este arquivo
 ```
@@ -65,7 +65,7 @@ Ele publica automaticamente na criação de um release, usando o segredo `PYPI_A
 ### Novo exemplo de package
 Os arquivos [novo_package.styp](novo_package.styp) e [meu_programa.styp](meu_programa.styp) mostram exemplos simples de programas Stypuff que podem ser compartilhados via GitHub e executados com:
 ```bash
-python3 stypuff_interpreter.py < meu_programa.styp
+python3 stypuff_interpreter.py < meu_programa.stypdata
 ```
 
 ### Compilar e Rodar Testes
@@ -315,7 +315,7 @@ Controla fluxo de execução:
 
 ### Código não executa
 - Verifique a sintaxe no seu programa Stypuff
-- Veja os exemplos em `examples.styp`
+- Veja os exemplos em `examples.styp` e `dados.stypdata`
 
 ### Variáveis não funcionam
 - Use `let` antes de declarar variáveis
@@ -324,7 +324,7 @@ Controla fluxo de execução:
 ## 📚 Referências
 
 - Especificação completa: `codelist.txt`
-- Exemplos: `examples.styp`
+- Exemplos: `examples.styp`, `dados.stypdata`
 - Testes: `tests.cc`
 
 ## 👨‍💻 Autor
