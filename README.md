@@ -62,6 +62,12 @@ stypuff
 Esse projeto já possui um workflow GitHub Actions em `.github/workflows/publish-python.yml`.
 Ele publica automaticamente na criação de um release, usando o segredo `PYPI_API_TOKEN` no repositório.
 
+### Novo exemplo de package
+O arquivo [novo_package.styp](novo_package.styp) mostra um exemplo simples de um pacote Stypuff que pode ser compartilhado via GitHub e executado com:
+```bash
+python3 stypuff_interpreter.py < novo_package.styp
+```
+
 ### Compilar e Rodar Testes
 ```bash
 # Compilar testes
