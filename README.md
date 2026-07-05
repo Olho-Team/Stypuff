@@ -1,4 +1,5 @@
 # Stypuff
+[Manifesto de Imagem do Docker V2, Esquema 2](https://docs.docker.com/registry/spec/manifest-v2-2/)
 
 >An programming Languange made by C# 
 1.  Creating an Object on Stypuff
