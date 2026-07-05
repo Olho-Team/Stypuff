@@ -1,40 +1,144 @@
-# Stypuff
-[Manifesto de Imagem do Docker V2, Esquema 2](https://docs.docker.com/registry/spec/manifest-v2-2/)
+# 🔥 Stypuff Programming Language
 
->An programming Languange made by C# 
-1.  Creating an Object on Stypuff
-```stypuff
-sty.create(#object)
+Um interpretador de linguagem de programação criado em C++ baseado na especificação Stypuff.
+
+## 📁 Estrutura do Projeto
+
 ```
-2.  Creating an Eventbox por an object
-```stypuff
-sty.create(#object)
-work(#object).eventboxNew
+stypuffheart.cc  - Núcleo do interpretador (Tokenizer, Parser, Executor)
+localdata.cc     - Gerenciador de variáveis, objetos e arrays
+branch.cc        - Controle de fluxo e eventos
+codelist.txt     - Lista de código/especificação Stypuff
+examples.styp    - Exemplos de programas em Stypuff
+tests.cc         - Suite de testes
+README.md        - Este arquivo
 ```
-3.  Creating an automation on the Object
+
+## 🚀 Como Compilar e Executar
+
+### Windows (PowerShell/CMD)
+```bash
+# Compilar o interpretador
+g++ -std=c++17 -o stypuff stypuffheart.cc
+
+# Executar
+.\stypuff
+```
+
+### Linux/Mac
+```bash
+# Compilar
+g++ -std=c++17 -o stypuff stypuffheart.cc
+
+# Executar
+./stypuff
+```
+
+### Compilar e Rodar Testes
+```bash
+# Compilar testes
+g++ -std=c++17 -o tests tests.cc
+
+# Executar
+.\tests  (Windows)
+./tests  (Linux/Mac)
+```
+
+## 📝 Sintaxe Stypuff
+
+### Criação de Aplicação
 ```stypuff
-sty.create(#object)
-work(#object).eventboxNew
-#object.eventbox{
- if(event == $keypressed("left-arrow")){
-  sty.move(#object|["5","left"])
- }
- if(event == $keypressed("right-arrow")){
-  sty.move(#object|["5","right"])
- }
- if(event == $keypressed("up-arrow")){
-  sty.move(#object|["5","up"])
- }
- if(event == $keypressed("down-arrow")){
-  sty.move(#object|["5","down"])
- }
+styp.create("nomeApp")
+work("nomeApp").eventboxNew
+```
+
+### Variáveis
+```stypuff
+let variavel = valor
+const constante = valor
+let numero = 42
+let texto = "Olá"
+```
+
+### Operações Aritméticas
+```stypuff
+let resultado = 10 + 5    # Soma
+let resultado = 10 - 5    # Subtração
+let resultado = 10 * 5    # Multiplicação
+let resultado = 10 / 5    # Divisão
+```
+
+### Condicionais
+```stypuff
+if(condicao) {
+    # código
+}
+
+if(condicao) {
+    # código if
+} else {
+    # código else
 }
 ```
-- [ ] It's programmed yet?
-> [!TIP]
-> The Stypuff Mythic it's the Harder version of Stypuff
 
-<details>
-<summary>Stypuff Olho Proprietys</summary>
-Licensed Card: [#42152135]
-</details>
+### Funções
+```stypuff
+func() {
+    # corpo da função
+}
+
+func(param1, param2) {
+    # função com parâmetros
+}
+```
+
+### Arrays
+```stypuff
+let styp.array("lista") = 
+@array("lista")[0]
+@array("lista")[1]
+```
+
+### Dados/Objetos
+```stypuff
+set @data("player") = {}
+set @data("player") = "name" = "Miguel"
+set @variable("score") = 100
+```
+
+### Controle de Eventos
+```stypuff
+# Eventos de mouse/teclado
+if(event == $mousekeypressed("click")) {
+    # ação
+}
+
+if(event == $keypressed("Enter")) {
+    # ação
+}
+
+# Listeners de eventos
+on @variable(""):: $itsDisplaying("") {
+    # ação quando variável está visível
+}
+
+on @variable(""):: $itsNotDisplaying("") {
+    # ação quando variável está oculta
+}
+```
+
+### Módulos
+```stypuff
+import "utils"
+import "helpers"
+
+export minhaFuncao()
+```
+
+### Recursos Mitológicos
+```stypuff
+assemble = mythicControl
+
+mythicControl.##Response() {
+    @eletronicData("estado") = "processado"
+}
