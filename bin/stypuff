@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Wrapper to run the compiled C++ interpreter if available, otherwise run the Python interpreter
+ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+if [ -x "$ROOT_DIR/build/stypuff" ]; then
+  exec "$ROOT_DIR/build/stypuff" "$@"
+else
+  exec python3 "$ROOT_DIR/stypuff_interpreter.py" "$@"
+fi

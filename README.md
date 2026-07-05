@@ -34,6 +34,14 @@ g++ -std=c++17 -o stypuff stypuffheart.cc
 ./stypuff
 ```
 
+### Alternativa: Executar via wrapper (recomendado para desenvolvimento)
+O repositório inclui um wrapper `bin/stypuff` que executará o binário C++ se estiver disponível (em `build/stypuff`) ou o interpretador Python (`stypuff_interpreter.py`) como fallback.
+
+Para usar:
+```bash
+./bin/stypuff
+```
+
 ### Compilar e Rodar Testes
 ```bash
 # Compilar testes
