@@ -328,31 +328,18 @@ private:
                 auto condition = parseExpression();
                 expect(TOKEN_SYMBOL, ")");
                 expect(TOKEN_SYMBOL, "{");
-                
-                expect(TOKEN_SYMBOL, "(");
-                
-                vector<string> params;
-                while (!check(TOKEN_SYMBOL) || current().value != ")") {
-                    params.push_back(expect(TOKEN_IDENTIFIER, "expected parameter").value);
-                    if (check(TOKEN_SYMBOL) && current().value == ",") {
-                        advance();
-                    }
-                }
-                expect(TOKEN_SYMBOL, ")");
-                expect(TOKEN_SYMBOL, "{");
-                
-                vector<shared_ptr<ASTNode>> body;
+
+                vector<shared_ptr<ASTNode>> thenBranch;
                 while (!check(TOKEN_SYMBOL) || current().value != "}") {
                     auto stmt = parseStatement();
-                    if (stmt) body.push_back(stmt);
+                    if (stmt) thenBranch.push_back(stmt);
                 }
                 expect(TOKEN_SYMBOL, "}");
-                
-                auto funcDecl = make_shared<FunctionDeclaration>();
-                funcDecl->name = "anonymous";
-                funcDecl->params = params;
-                funcDecl->body = body;
-                return funcDecl;
+
+                auto ifStmt = make_shared<IfStatement>();
+                ifStmt->condition = condition;
+                ifStmt->thenBranch = thenBranch;
+                return ifStmt;
             } else if (keyword == "when") {
                 advance(); // consume 'when'
                 expect(TOKEN_SYMBOL, "{");
@@ -362,21 +349,8 @@ private:
                     if (stmt) body.push_back(stmt);
                 }
                 expect(TOKEN_SYMBOL, "}");
-                // For now, treat when as a regular block
-                return nullptrMBOL, "{");
-                
-                vector<shared_ptr<ASTNode>> body;
-                while (!check(TOKEN_SYMBOL) || current().value != "}") {
-                    auto stmt = parseStatement();
-                    if (stmt) body.push_back(stmt);
-                }
-                expect(TOKEN_SYMBOL, "}");
-                
-                auto funcDecl = make_shared<FunctionDeclaration>();
-                funcDecl->name = name;
-                funcDecl->params = params;
-                funcDecl->body = body;
-                return funcDecl;
+                // For now, ignore 'when' blocks in the C++ interpreter
+                return nullptr;
             }
         }
         
