@@ -1,0 +1,203 @@
+==============================================================================
+EXEMPLOS DE CÓDIGO STYPUFF
+==============================================================================
+
+EXEMPLO 1: Olá Mundo
+==============================================================================
+styp.create("helloApp")
+let greeting = "Olá, Mundo!"
+func() {
+    print(greeting)
+}
+
+
+EXEMPLO 2: Operações Aritméticas
+==============================================================================
+styp.create("calculator")
+
+let num1 = 10
+let num2 = 5
+
+let soma = num1 + num2
+let subtracao = num1 - num2
+let multiplicacao = num1 * num2
+let divisao = num1 / num2
+
+print_ln(soma)
+print_ln(subtracao)
+print_ln(multiplicacao)
+print_ln(divisao)
+
+
+EXEMPLO 3: Condicionais
+==============================================================================
+styp.create("ifExample")
+
+let idade = 18
+
+if(idade == 18) {
+    print("Você tem 18 anos!")
+}
+
+if(idade > 21) {
+    print("Maior de idade!")
+} else {
+    print("Menor de idade!")
+}
+
+
+EXEMPLO 4: Variáveis e Dados
+==============================================================================
+styp.create("dataApp")
+
+let username = "Miguel"
+let score = 100
+
+@data("player") = {
+    "name": "Miguel",
+    "level": 5,
+    "health": 100
+}
+
+set @data("player") = "level" = 10
+
+
+EXEMPLO 5: Arrays
+==============================================================================
+styp.create("arrayApp")
+
+let styp.array("numeros") = 
+let styp.array("nomes") = 
+
+@array("numeros")[0]
+@array("nomes")[1]
+
+
+EXEMPLO 6: Eventos de Mouse e Teclado
+==============================================================================
+styp.create("eventApp")
+
+if(event == $mousekeypressed("click")) {
+    print("Clique detectado!")
+}
+
+if(event == $keypressed("Enter")) {
+    print("Enter pressionado!")
+}
+
+on @variable("clicked"):: $itsDisplaying("button") {
+    print("Botão clicado!")
+}
+
+
+EXEMPLO 7: Classes e Objetos
+==============================================================================
+styp.create("objectApp")
+
+class("Pessoa") = {
+    let nome = ""
+    let idade = 0
+    
+    func() {
+        print(nome)
+        print(idade)
+    }
+}
+
+
+EXEMPLO 8: Controle de Fluxo Avançado
+==============================================================================
+styp.create("flowApp")
+
+let contador = 0
+
+when {} {
+    case("iniciado") {
+        print("Iniciando...")
+    }
+    case("ativo") {
+        print("Sistema ativo!")
+    }
+    case("parado") {
+        print("Sistema parado.")
+    }
+}
+
+
+EXEMPLO 9: Módulos (Import/Export)
+==============================================================================
+import "utils"
+import "helpers"
+
+export myFunction()
+
+myFunction() {
+    print("Função exportada!")
+}
+
+
+EXEMPLO 10: Assemble com Control Mitológico
+==============================================================================
+styp.create("mythicApp")
+
+assemble = mythicControl
+
+mythicControl.##Response() {
+    @eletronicData("estado") = "processado"
+}
+
+mythicControl.##CallResponse() {
+    print("Resposta chamada")
+}
+
+on @eletronicData():: $itsDisplaying("activeState") {
+    print("Estado eletrônico ativo!")
+}
+
+
+==============================================================================
+ESTRUTURA SINTÁTICA RESUMIDA
+==============================================================================
+
+CRIAÇÃO:
+  styp.create("nome")
+  work("nome").eventboxNew
+
+VARIÁVEIS:
+  let variavel = valor
+  const variavel = valor
+
+DADOS:
+  set @data("objeto") = {}
+  set @variable("chave") = "valor"
+
+ARRAYS:
+  let styp.array("lista") = 
+  @array("lista")[índice]
+
+FUNÇÕES:
+  func() {}
+  func(param1, param2) {}
+
+CONTROLE DE FLUXO:
+  if() {}
+  if() {}:else {}
+  when {}
+
+EVENTOS:
+  if(event == $mousekeypressed("")) {}
+  if(event == $keypressed("")) {}
+  on @variable(""):: $itsDisplaying("") {}
+
+MÓDULOS:
+  import "caminho"
+  export nomeDoItem()
+
+FEATURES MITOLÓGICAS:
+  assemble = mythicControl
+  mythicControl.##Response() {}
+  @eletronicData()
+  @image()
+  @stypuffData()
+
+==============================================================================
