@@ -49,6 +49,27 @@ cd "c:\Users\Miguel Massola\Downloads\Stypuff"
 python stypuff_interpreter.py
 ```
 
+### Usando como pacote Python
+Se você baixou o `.zip` do repositório e extraiu, vá até a pasta extraída e execute:
+```bash
+pip install .
+```
+
+Ou para desenvolvimento:
+```bash
+pip install -e .
+```
+
+Então rode:
+```bash
+stypuff
+```
+
+Se quiser apenas testar sem instalar, também pode executar diretamente:
+```bash
+python stypuff_interpreter.py
+```
+
 ---
 
 ## 📦 Opção 3: Instalar Visual Studio Community (Completo)
