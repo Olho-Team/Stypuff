@@ -32,3 +32,8 @@ work(#object).eventboxNew
 - [ ] It's programmed yet?
 > [!TIP]
 > The Stypuff Mythic it's the Harder version of Stypuff
+
+<details>
+<summary>Stypuff Olho Proprietys</summary>
+Licensed Card: [#42152135]
+</details>
