@@ -2,6 +2,11 @@
 EXEMPLOS DE CÓDIGO STYPUFF
 ==============================================================================
 
+# FAVICON: stypuffDatas/favicon.ico
+# Este cabeçalho indica o favicon associado ao arquivo .styp
+# Não é código de execução — apenas metadado.
+
+
 EXEMPLO 1: Olá Mundo
 ==============================================================================
 styp.create("helloApp")
