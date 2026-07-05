@@ -42,6 +42,26 @@ Para usar:
 ./bin/stypuff
 ```
 
+### Instalar como package Python
+Para instalar localmente como um package Python e ter o comando `stypuff` disponível:
+```bash
+pip install .
+```
+
+Para instalar em modo de desenvolvimento:
+```bash
+pip install -e .
+```
+
+Depois disso, execute o interpretador com:
+```bash
+stypuff
+```
+
+### Publicar no PyPI
+Esse projeto já possui um workflow GitHub Actions em `.github/workflows/publish-python.yml`.
+Ele publica automaticamente na criação de um release, usando o segredo `PYPI_API_TOKEN` no repositório.
+
 ### Compilar e Rodar Testes
 ```bash
 # Compilar testes

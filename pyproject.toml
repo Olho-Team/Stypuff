@@ -13,3 +13,6 @@ dependencies = []
 
 [project.scripts]
 stypuff = "stypuff_interpreter:main"
+
+[tool.setuptools]
+py-modules = ["stypuff_interpreter"]
