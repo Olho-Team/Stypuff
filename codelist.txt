@@ -1,0 +1,36 @@
+styp.create("")
+work("").eventboxNew
+.eventbox{}
+if(){}
+if(){}:else{}
+when{}
+let "" = ""
+let "" = 
+if(event == $mousekeypressed("")){}
+if(event == $keypressed("")){}
+on = {}
+styp.move(|[,""])
+work.data{}
+class("") =
+const("") =
+styp.dataNew()
+set @data("") = {}
+set @variable("") = ""
+set @variable("") = 
+assemble = mythicControl
+func(){}
+on @variable(""):: $itsDisplaying(""){}
+on @variable(""):: $itsNotDisplaying(""){}
+on @variable(""):: $itsDisplaying(""):andDisplaying(""){}
+@variable("")
+@data("")
+mythicControl.##Response(){}
+mythicControl.##CallResponse()
+import
+export
+mythicControl.@eletronicData()
+@eletronicData()
+@image()
+@stypuffData()
+let styp.array("") = 
+@array("")
